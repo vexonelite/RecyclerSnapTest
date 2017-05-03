@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="text_001">#4d372c</color>
+    <color name="text_002">#55505c</color>
+
+    <color name="descriptionText">#747474</color>
+    <color name="hintText">#BFBFBF</color>
+
+    <color name="transparent">#00ffffff</color>
+
+    <!-- Window background -->
+    <color name="window_bg001">#eaeaea</color>
+    <color name="divider_001">#d2d2d2</color>
+    <color name="divider_002">#e2e2e2</color>
+
+
+    <!-- Progress Dialog -->
+    <!-- Background color of Progress Dialog -->
+    <color name="ProgressDialogBackground">#333333</color>
+    <!-- Text color of title for the Progress Dialog -->
+    <color name="ProgressDialogText">#FFFFFF</color>
+
+    <!-- Border color for UI widget, e.g., Button or EditText -->
+    <color name="WidgetBorder">#BFBFBF</color>
+
+    <color name="alpha_point_one_black">#1A000000</color>
+    <color name="alpha_point_two_black">#4d54505c</color>
+    <color name="alpha_point_8_black">#cc000000</color>
+    <color name="alpha_point_6_black">#99000000</color>
+    <color name="alpha_point_4_black">#66000000</color>
+    <color name="alpha_point_5_black">#80ffffff</color>
+    <color name="alpha_point_3_white">#4dffffff</color>
+    <color name="alpha_full_black">#00000000</color>
+
+
+    <color name="gray_ninety_four">#f0f0f0</color>
+    <color name="gray_eighty">#cccccc</color>
+    <color name="gray_sixty">#999999</color>
+    <color name="gray_forty">#666666</color>
+    <color name="gray_twenty_seven">#454545</color>
+    <color name="gray_twenty_two">#383838</color>
+    <color name="gray_twenty">#333333</color>
+
+    <color name="gray_001">#919191</color>
+    <color name="gray_002">#353535</color>
+    <color name="gray_003">#bcbcbc</color>
+    <color name="gray_004">#f7f7f7</color>
+    <color name="gray_005">#494949</color>
+    <color name="gray_006">#eaeaea</color>
+    <color name="gray_007">#f4f4f4</color>
+    <color name="gray_008">#f2f2f2</color>
+    <color name="gray_009">#757575</color>
+    <color name="gray_010">#cacaca</color>
+    <color name="gray_011">#b2b2b2</color>
+
+    <color name="gray_0001">#efefef</color>
+    <color name="gray_0004">#dddddd</color>
+    <color name="gray_0005">#cecece</color>
+    <color name="gray_0006">#cbcbcb</color>
+    <color name="gray_0007">#bbbbbb</color>
+    <color name="gray_0009">#a9a9a9</color>
+    <color name="gray_0010">#a2a2a2</color>
+    <color name="gray_0011">#888888</color>
+    <color name="gray_0012">#848484</color>
+    <color name="gray_0013">#535353</color>
+    <color name="gray_0014">#222222</color>
+    <color name="gray_0015">#fafafa</color>
+    <color name="gray_0016">#55505c</color>
+    <color name="gray_0017">#9b9b9b</color>
+    <color name="gray_0018">#4a4a4a</color>
+
+
+
+    <color name="pink_001">#f16866</color>
+    <color name="pink_002">#fed4d5</color>
+    <color name="pink_003">#e26970</color>
+    <color name="alpah_pink_002_1">#b2fed3d5</color>
+    <color name="alpah_pink_002_2">#66fed3d5</color>
+    <color name="pink_004">#ffeeee</color>
+
+    <color name="blue_001">#00aed8</color>
+
+
+    <color name="blue">#0000ff</color>
+    <color name="more_light_blue">#cce0f4</color>
+    <color name="light_blue_one">#33b5e6</color>
+    <color name="middle_blue">#369de1</color>
+    <color name="deep_blue">#3b6ccd</color>
+    <color name="thick_blue">#0066b0</color>
+
+    <color name="red_001">#e60012</color>
+
+    <color name="red">#ff0000</color>
+
+
+    <color name="orange_001">#f5821f</color>
+
+    <color name="orange_0001">#f19149</color>
+    <color name="orange_0002">#fbe1ce</color>
+
+    <color name="orange_red">#ff0c3e</color>
+
+    <color name="rice_white">#efefde</color>
+    <color name="pink">#ff8ecf</color>
+    <color name="violet">#ee82ee</color>
+
+    <color name="green_001">#2bb2a2</color>
+    <color name="green_002">#008061</color>
+    <color name="green_003">#2ce5ca</color>
+
+
+    <color name="green_0001">#81c36a</color>
+    <color name="green_0002">#80c846</color>
+    <color name="green_0003">#98d567</color>
+    <color name="green_0004">#f2f8ed</color>
+    <color name="green_0005">#e5f0dc</color>
+    <color name="green_0006">#afd88e</color>
+
+    <color name="green_line">#00c402</color>
+    <color name="green_weibo">#77ab34</color>
+    <color name="blue_facebook">#3b5998</color>
+
+
+    <color name="green">#00ff00</color>
+    <color name="light_green_one">#0dffce</color>
+    <color name="thick_green_one">#0ce890</color>
+    <color name="grass_green">#bded84</color>
+    <color name="pants_green">#008080</color>
+
+    <color name="yellow_001">#ffc42a</color>
+
+    <color name="yellow_0001">#fff6d2</color>
+    <color name="yellow_0002">#fff799</color>
+
+    <color name="yellow">#fff312</color>
+    <color name="light_yellow_mix_orange">#ffce0d</color>
+    <color name="egg_yellow_orange">#ffc703</color>
+    <color name="shit_yellow_orange">#f3c503</color>
+    <color name="buddii_orange">#ffa329</color>
+    <color name="buddii_orange_gradient">#ff8c3b</color>
+    <color name="buddii_camera_orange">#ff9b2e</color>
+
+
+    <color name="deep_red_pink">#e80c64</color>
+    <color name="light_brown">#a19f91</color>
+
+    <color name="brown_001">#4d372c</color>
+    <color name="alpha_point_3_brown_001">#4d4d372c</color>
+
+
+
+    <color name="alpha_point_four_black">#66000000</color>
+    <color name="alpha_point_four_buddii_green_one">#6600d1a9</color>
+    <color name="buddii_green_one">#00d1a9</color>
+    <color name="buddii_gray_fourteen">#bbbbbb</color>
+
+    <!--
+        Hex Opacity Values
+
+        100% — FF
+        95% — F2
+        90% — E6
+        85% — D9
+        80% — CC
+        75% — BF
+        70% — B3
+        65% — A6
+        60% — 99
+        55% — 8C
+        50% — 80
+        45% — 73
+        40% — 66
+        35% — 59
+        30% — 4D
+        25% — 40
+        20% — 33
+        15% — 26
+        10% — 1A
+        5% — 0D
+        0% — 00
+    -->
+
+    <color name="evoting_gray_001">#f3f3f3</color>
+    <color name="evoting_gray_002">#B3B3B4</color>
+    <color name="evoting_gray_003">#cacaca</color>
+    <color name="evoting_gray_004">#454545</color>
+    <color name="evoting_blue_001">#dae6f7</color>
+    <color name="evoting_alpha_point_5_blue_001">#80dae6f7</color>
+    <color name="evoting_blue_002">#458CFB</color>
+    <color name="evoting_blue_003">#042275</color>
+</resources>
