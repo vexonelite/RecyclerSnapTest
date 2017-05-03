@@ -67,7 +67,7 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
         return mData.get(position);
     }
 
-    public void allNewDataSet(final List<V> data, boolean defaultNotify) {
+    public void appendNewDataSet(final List<V> data, boolean defaultNotify) {
         if ( (null == mData) || (null == data) ) {
             return;
         }
@@ -82,7 +82,7 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
         }
     }
 
-    public void allNewDataSetToTheTop (final List<V> data, boolean defaultNotify) {
+    public void appendNewDataSetToTheTop (final List<V> data, boolean defaultNotify) {
         if ( (null == mData) || (null == data) ) {
             return;
         }
@@ -98,18 +98,7 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
     }
 
 
-    private void animatedAddNewDataSet(final List<V> data, boolean defaultNotify) {
-        if ( (null == mData) || (null == data) ) {
-            return;
-        }
-        int start = mData.size();
-        for (int i = 0; i < data.size(); i++) {
-            final V entity = data.get(i);
-            if (!mData.contains(entity)) {
-                addNewDataAtPosition(start + i, entity, defaultNotify);
-            }
-        }
-    }
+
 
 
     public void removeAllExistingData(boolean defaultNotify) {
@@ -125,19 +114,7 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
         }
     }
 
-
-    public void animatedRemoveAllExistingData(boolean defaultNotify) {
-        if ( (null != mData) && (!mData.isEmpty()) ) {
-            for (int i = mData.size() - 1; i >= 0; i--) {
-                final V entity = mData.get(i);
-                if (!mData.contains(entity)) {
-                    removeData(i, defaultNotify);
-                }
-            }
-        }
-    }
-
-    public void addNewDataToTheEnd(V entity, boolean defaultNotify) {
+    public void appendNewDataToTheEnd(V entity, boolean defaultNotify) {
         if ( (null == mData) || (null == entity) ) {
             return;
         }
@@ -150,7 +127,7 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
         }
     }
 
-    public void addNewDataAtPosition(int position, V entity, boolean defaultNotify) {
+    public void appendNewDataAtPosition(int position, V entity, boolean defaultNotify) {
         if ( (null == mData) || (null == entity) ) {
             return;
         }
@@ -162,10 +139,10 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
         }
     }
 
-    public void addNewDataAtPosition(int position, int positionOffset, V entity, boolean defaultNotify) {
+    public void appendNewDataAtPosition(int position, int positionOffset, V entity, boolean defaultNotify) {
 
         if (positionOffset <= 0) {
-            addNewDataAtPosition(position, entity, defaultNotify);
+            appendNewDataAtPosition(position, entity, defaultNotify);
         } else {
             if ( (null == mData) || (null == entity) ) {
                 return;
@@ -200,19 +177,6 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
         }
     }
 
-    public void animateMoveNewDataSet(final List<V> data) {
-        if (null == data) {
-            return;
-        }
-        for (int toPosition = (data.size() - 1) ; toPosition >= 0; toPosition--) {
-            final V entity = data.get(toPosition);
-            final int fromPosition = mData.indexOf(entity);
-            if (fromPosition >= 0 && fromPosition != toPosition) {
-                moveDataFromAtoB(fromPosition, toPosition);
-            }
-        }
-    }
-
     /**
      * Move the object from the position 'fromPosition' to the position 'toPosition'.
      */
@@ -242,48 +206,6 @@ public abstract class AbstractRecycleListAdapter<V, K extends RecyclerView.ViewH
     public List<V> CloneCurrentDataSet () {
         List<V> newData = new ArrayList<V>(mData);
         return newData;
-    }
-
-    public void setData(final List<V> data, boolean defaultNotify) {
-
-        synchronized (mLock) {
-
-            // Remove all deleted items.
-            if ( (null != mData) && (!mData.isEmpty()) ) {
-                for (int i = mData.size() - 1; i >= 0; --i) {
-                    if (getLocation(data, mData.get(i)) < 0) {
-                        removeData(i, defaultNotify);
-                    }
-                }
-            }
-
-            // Add and move items.
-            for (int i = 0; i < data.size(); ++i) {
-                V entity = data.get(i);
-                int loc = getLocation(mData, entity);
-                if (loc < 0) {
-                    addNewDataAtPosition(i, entity, false);
-                } else if (loc != i) {
-                    moveDataFromAtoB(i, loc);
-                }
-            }
-        }
-    }
-
-    private int getLocation(List<V> data, V entity) {
-
-        if ( (null == data) || (data.isEmpty()) ||
-                (null == entity) ) {
-            return -1;
-        }
-        return data.indexOf(entity);
-        //for (int j = 0; j < data.size(); ++j) {
-        //    V newEntity = data.get(j);
-        //    if (entity.equals(newEntity)) {
-        //        return j;
-        //    }
-        //}
-        //return -1;
     }
 
     public int getIndexOfObject(V entity) {
