@@ -31,7 +31,7 @@ public abstract class BaseViewPagerAdapter<T> extends FragmentStatePagerAdapter 
         mFragmentHolder = new SparseArrayCompat<>();
     }
 
-    public void addItemSet (List<T> itemSet) {
+    public void appendItemSet (List<T> itemSet) {
         if ( (null != itemSet) && (!itemSet.isEmpty()) ) {
             synchronized (mLock) {
                 mItemSet.addAll(itemSet);
