@@ -5,7 +5,6 @@ import android.util.Log;
 /**
  * Created by vexonelite on 2017/3/17.
  */
-
 public class LogWrapper {
 
 
