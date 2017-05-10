@@ -1,10 +1,6 @@
 package tw.realtime.project.lativtest;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -17,23 +13,32 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 public class RtYouTubePlayerFragment extends YouTubePlayerSupportFragment {
 
 
-    private String currentVideoID = "video_id";
     private YouTubePlayer mYouTubePlayer;
+    private String mVideoId;
+    private YoutubeInitCallback mYoutubeInitCallback;
+    private YoutubePlayerListener mCallback;
 
-    private String mVideoUrl;
 
+    public interface YoutubePlayerListener {
+        void onYouTubePlayerAvailable (YouTubePlayer youTubePlayer, boolean wasRestored);
+    }
 
     private String getLogTag () {
         return this.getClass().getSimpleName();
     }
 
-    protected void setVideoUrl (String videoUrl) {
-        mVideoUrl = videoUrl;
+    /**
+     *
+     * @param videoId e.g., "15rYBbcy4Qc"
+     */
+    protected void setVideoId (String videoId) {
+        mVideoId = videoId;
     }
 
-    public static RtYouTubePlayerFragment newInstance(String videoUrl) {
+
+    public static RtYouTubePlayerFragment newInstance(String videoId) {
         RtYouTubePlayerFragment fragment = new RtYouTubePlayerFragment();
-        fragment.setVideoUrl(videoUrl);
+        fragment.setVideoId(videoId);
         fragment.initYoutubePlayer();
         return fragment;
     }
@@ -54,15 +59,59 @@ public class RtYouTubePlayerFragment extends YouTubePlayerSupportFragment {
         pauseYouTubePlayerIfNeeded();
     }
 
-    private void pauseYouTubePlayerIfNeeded() {
+    public void setYoutubePlayerListener (YoutubePlayerListener callback) {
+        mCallback = callback;
+    }
+
+    public void initYoutubePlayer() {
+        if ( (null == mYouTubePlayer) && (null == mYoutubeInitCallback) ) {
+            mYoutubeInitCallback = new YoutubeInitCallback();
+            initialize(DeveloperKey.DEVELOPER_KEY, mYoutubeInitCallback);
+        }
+    }
+
+    public void initYoutubePlayer(YouTubePlayer.OnInitializedListener callback) {
+        if ( (null == mYouTubePlayer) && (null != callback) ) {
+            initialize(DeveloperKey.DEVELOPER_KEY, callback);
+        }
+    }
+
+    /**
+     *
+     * @param videoId e.g., "15rYBbcy4Qc"
+     */
+    public void cueVideoIfNeeded (String videoId) {
+        if (null != mYouTubePlayer) {
+            mYouTubePlayer.cueVideo(videoId);
+        }
+    }
+
+    /**
+     *
+     * @param videoId e.g., "15rYBbcy4Qc"
+     */
+    public void loadVideoIfNeeded (String videoId) {
+        if (null != mYouTubePlayer) {
+            mYouTubePlayer.loadVideo(videoId);
+        }
+    }
+
+    /**
+     *
+     */
+    public void playVideoIfNeeded () {
+        if (null != mYouTubePlayer) {
+            mYouTubePlayer.play();
+        }
+    }
+
+    public void pauseYouTubePlayerIfNeeded() {
         if (null != mYouTubePlayer) {
             mYouTubePlayer.pause();
         }
     }
 
-    private void initYoutubePlayer() {
-        initialize(DeveloperKey.DEVELOPER_KEY, new YoutubeInitCallback());
-    }
+    //Loads the specified video's thumbnail and prepares the player to play the video, but does not download any of the video stream until play() is called.
 
     private class YoutubeInitCallback implements YouTubePlayer.OnInitializedListener {
 
@@ -72,15 +121,22 @@ public class RtYouTubePlayerFragment extends YouTubePlayerSupportFragment {
                                             boolean wasRestored) {
             mYouTubePlayer = youTubePlayer;
             youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-            if (!wasRestored) {
-                youTubePlayer.loadVideo(mVideoUrl, 0);
+            if (null != mCallback) {
+                mCallback.onYouTubePlayerAvailable(youTubePlayer, wasRestored);
             }
+//            if (!wasRestored) {
+//                youTubePlayer.loadVideo(mVideoId, 0);
+//            }
+            mYoutubeInitCallback = null;
         }
 
         @Override
         public void onInitializationFailure(YouTubePlayer.Provider provider,
                                             YouTubeInitializationResult youTubeInitializationResult) {
             LogWrapper.showLog(Log.ERROR, getLogTag(), "onInitializationFailure: " + youTubeInitializationResult);
+            mYoutubeInitCallback = null;
         }
     }
+
+
 }
