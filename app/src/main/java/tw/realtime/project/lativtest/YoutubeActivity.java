@@ -10,6 +10,8 @@ import android.util.Log;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 
+import tw.realtime.project.baseframework.widgets.LogWrapper;
+
 /**
  * Put two RtYoutubePlayerFragments together and test if two player views can play simultaneously.
  * The result matches what the references pointed out: YouTube Android Player SDK enforces

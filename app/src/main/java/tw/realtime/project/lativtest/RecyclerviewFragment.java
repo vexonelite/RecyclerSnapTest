@@ -15,6 +15,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import tw.realtime.project.baseframework.adapters.AbstractRecycleListAdapter;
+import tw.realtime.project.baseframework.widgets.LogWrapper;
+
 /**
  * Created by vexonelite on 2017/5/3.
  */

@@ -6,6 +6,8 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import tw.realtime.project.baseframework.widgets.LogWrapper;
+
 /**
  * Created by vexonelite on 2017/5/9.
  */

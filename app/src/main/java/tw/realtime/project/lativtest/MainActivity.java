@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import tw.realtime.project.baseframework.utils.CodeUtils;
+import tw.realtime.project.baseframework.v4.adapters.BaseViewPagerAdapter;
+import tw.realtime.project.baseframework.widgets.LogWrapper;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
